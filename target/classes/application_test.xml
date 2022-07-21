@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context 
+      http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+      
+      <!-- 파일값을 변수처럼 사용할 수 있게 도와줌 --> <!-- classpath(=src) -->
+      <context:property-placeholder location="classpath:print.properties" />
+	
+	<!-- id="객체 이름" class="해당 객체 경로" -->
+	<bean id="pst" class="com.care.di_test.PrintString" />
+	
+	<bean id="pb" class="com.care.di_test.PrintBean">
+		<property name="ps" ref="pst" />
+		<property name="print" value="${db.ip}" />
+	</bean>
+	
+	
+</beans>

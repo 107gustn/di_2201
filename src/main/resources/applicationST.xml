@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean 객체 생성 -->
+	<bean id="st01" class="com.care.di02.Student" />
+	
+	<bean id="stb" class="com.care.di02.STBean">
+		<!-- property(stb의 setter) - name="변수이름" --> <!-- IOC 컨테이너에 빈객체 저장 -->
+		<property name="st">
+			<!-- ref(객체에 객체를 대입) - 해당 빈 주입 -->
+			<ref bean="st01"/>
+		</property>
+		<property name="age" value="222" /> <!-- setter에 의해서 주입이 된다. -->
+		<property name="name" value="김말이" />
+	</bean>
+</beans>
